@@ -1,0 +1,104 @@
+unified_prompt: |
+  # Task: Autonomous Bundle Operation Detection and Execution
+  # Goal: Analyze the product bundle and determine what operation is needed (ADD/DELETE/UPDATE)
+  
+  # ============================================================
+  # PART 1: OPERATION DETECTION
+  # ============================================================
+  
+  ## Detection Guidelines:
+  
+  ### When to use DELETE:
+  # - One or more items seem inconsistent with the bundle theme
+  # - An item appears to be an outlier that disrupts bundle coherence
+  # - NO candidate items are provided (candidates list is "No candidates available")
+  # - The bundle would be more coherent if a specific item was removed
+  
+  ### When to use ADD:
+  # - The bundle seems incomplete or missing complementary items
+  # - Candidate items are provided that would enhance the bundle
+  # - All current bundle items fit well together
+  # - One of the candidates would make the bundle more complete
+  
+  ### When to use UPDATE:
+  # - The bundle has an inconsistent item AND a better replacement is available
+  # - One item should be swapped for a more coherent alternative
+  # - Candidate items are provided AND at least one current item seems inconsistent
+  # - Replacing one item would significantly improve bundle coherence
+  
+  # ============================================================
+  # PART 2: YOUR TASK
+  # ============================================================
+  
+  ## Current Bundle:
+  {bundle_lines}
+  
+  ## Available Candidate Items:
+  {cand_lines}
+  
+  ## Instructions:
+  1. First, analyze the semantic coherence of the current bundle
+  2. Determine which operation (ADD/DELETE/UPDATE) is most appropriate
+  3. Execute the operation by selecting the specific item(s)
+  
+  ### For DELETE operation:
+  - Identify the item that is most inconsistent with the bundle
+  - Output: The item number and name to remove
+  
+  ### For ADD operation:
+  - Identify which candidate best complements the existing bundle
+  - Output: The candidate number and name to add
+  
+  ### For UPDATE operation:
+  - First identify the most inconsistent item in the current bundle
+  - Then select the best candidate replacement
+  - Output: Both the removed item and selected candidate
+  
+  # ============================================================
+  # REQUIRED OUTPUT FORMAT
+  # ============================================================
+  
+  # You MUST output in ONE of the following formats based on your analysis:
+  
+  # Format for DELETE operation:
+  # Operation Type: DELETE
+  # Removed item: [Number]. [Product Name]
+  
+  # Format for ADD operation:
+  # Operation Type: ADD
+  # Selected item: [Number]. [Product Name]
+  
+  # Format for UPDATE operation:
+  # Operation Type: UPDATE
+  # Removed item: [Number]. [Product Name]
+  # Selected item: [Number]. [Product Name]
+
+
+# Legacy prompts (for backward compatibility - not used in unified mode)
+add_prompt: |
+  Here is a bundle of products:
+  {bundle_lines}
+  Here are 20 candidate products that might go together with the bundle:
+  {cand_lines}
+  Please pick the one you think could fit with the bundle.
+  Final Selection:[Candidate Number]. [Candidate Product Name]
+
+delete_prompt: |
+  Here is a bundle of products:
+  {bundle_lines}
+  
+  Please identify which product from the bundle above least fits with the others and should be removed.
+  
+  Final Selection:[Product Number]. [Product Name]
+
+update_prompt: |
+  Here is a bundle of products:
+  {bundle_lines}
+  
+  Here are candidate products that might replace one of the existing items:
+  {cand_lines}
+  
+  Following the pattern from the examples above, first identify which item to remove, then select the best replacement.
+  
+  Removed item:[Product Number]. [Product Name]
+  Selected item:[Candidate Number]. [Candidate Product Name]

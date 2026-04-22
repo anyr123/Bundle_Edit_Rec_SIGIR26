@@ -1,0 +1,6 @@
+ItemKNN Add Task Results - clothing
+Hit@1: 0.1005
+Hit count: 20
+Total bundles: 199
+Success rate: 199/199
+Time: 0.08 minutes

@@ -1,0 +1,107 @@
+# Chain of Thought Prompts for Bundle Tasks
+# 要求模型展示推理过程的prompt版本
+
+add_prompt: |
+  Here is a bundle of products:
+  {bundle_lines}
+  Bundle topic:
+  {bundle_topic}
+  Here are 20 candidate products that might go together with the bundle:
+  {cand_lines}
+  
+  Task: Select the one candidate product that best fits with the existing bundle.
+  
+  Please think step by step:
+  1. First, analyze the bundle topic and the existing products
+  2. For each candidate, evaluate how well it matches the bundle's topic and theme
+  3. Consider how each candidate would complement the existing products
+  4. Make your final selection based on the best fit with the bundle's topic
+  
+  Final Selection: [Candidate Number]. [Candidate Product Name]
+
+delete_prompt: |
+  Here is a bundle of products:
+  {bundle_lines}
+
+  Let's think step by step:
+  1. Determine the bundle's main theme or purpose briefly .
+  2. Evaluate Each Item: For each product in the bundle, explain how it relates to or deviates from the bundle's main theme.
+  3. Please identify which product from the bundle above least fits with the others and should be removed.
+  4. Output in the following format.
+
+  Final Selection:[Product Number]. [Product Name]
+
+
+delete_prompt2: |
+  Here is a bundle of products:
+  {bundle_lines}
+
+
+  Let's think step by step:
+  1. Analyze the Bundle Topic: What is the central theme or purpose of the bundle based on the provided topic? What kind of items would logically belong in this bundle?
+  2. Evaluate Each Item: For each product in the bundle, explain how it relates to or deviates from the bundle topic.
+  3.Identify the Outlier: Compare all items and pinpoint the one that has the weakest or most contradictory connection to the topic. Justify why this item is the most irrelevant.
+  4. Please identify which product from the bundle above least fits with the others and should be removed.
+
+  Final Selection:[Product Number]. [Product Name]
+
+
+delete_prompt1: |
+  Here is a bundle of products:
+  {bundle_lines}
+
+  Bundle topic:
+  {bundle_topic}
+
+  Example  (Clothing):
+  Bundle: 1. Winter Jacket, 2. Wool Scarf, 3. Summer Sandals, 4. Winter Gloves
+  Remove: 3. Summer Sandals (doesn't fit the winter clothing theme)
+  
+  Please think through this step by step:
+  1. Consider what the bundle topic means
+  2. Identify which items fit the topic
+  3. Find the item that doesn't belong
+
+  Final Selection:[Product Number]. [Product Name]
+
+
+update_prompt: |
+  Here is a bundle of products:
+  {bundle_lines}
+
+  Here are candidate products that might replace one of the existing items:
+  {cand_lines}
+  
+  Task: First identify which product from the original bundle should be removed (least fitting), then select which candidate product should replace it.
+  
+  Please think step by step:
+  1. Analyze the bundle's topic and overall theme, then identify the least fitting item
+  2. Consider what type of product would better complement the remaining items and align with the bundle topic
+  3. Evaluate each candidate for how well it would fit the bundle's topic and theme
+  4. Select the candidate that would create the most coherent bundle aligned with the topic
+  5. Ensure the replacement improves the overall bundle quality and coherence with the topic
+  
+  Removed item: [Product Number]. [Product Name]
+  Selected item: [Candidate Number]. [Candidate Product Name]
+
+
+update_prompt1: |
+  Here is a bundle of products:
+  {bundle_lines}
+  Bundle topic:
+  {bundle_topic}
+  
+  Here are candidate products that might replace one of the existing items:
+  {cand_lines}
+  
+  Task: First identify which product from the original bundle should be removed (least fitting), then select which candidate product should replace it.
+  
+  Please think step by step:
+  1. Analyze the bundle's topic and overall theme, then identify the least fitting item
+  2. Consider what type of product would better complement the remaining items and align with the bundle topic
+  3. Evaluate each candidate for how well it would fit the bundle's topic and theme
+  4. Select the candidate that would create the most coherent bundle aligned with the topic
+  5. Ensure the replacement improves the overall bundle quality and coherence with the topic
+  
+  Removed item: [Product Number]. [Product Name]
+  Selected item: [Candidate Number]. [Candidate Product Name]  

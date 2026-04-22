@@ -1,0 +1,162 @@
+unified_prompt: |
+  # Task: Autonomous Bundle Operation Detection and Execution
+  # Goal: As a senior recommendation system expert, you must:
+  # 1. Analyze the current bundle to determine what operation is needed (ADD/DELETE/UPDATE)
+  # 2. Execute the appropriate operation with semantic reasoning
+  # 3. Use NBR (Neighbor Bundle Retrieval) context and topic analysis to guide decisions
+
+  # ============================================================
+  # PART 1: OPERATION DETECTION
+  # ============================================================
+  
+  ## Detection Guidelines:
+  
+  ### When to use DELETE:
+  # - One or more items seem semantically inconsistent with the bundle theme
+  # - An item appears to be an outlier that disrupts bundle coherence
+  # - The bundle topic suggests some items don't belong
+  # - Neighbor bundles show similar items are rarely grouped together
+  # - NO candidate items are provided (candidates list is empty or "No candidates available")
+  
+  ### When to use ADD:
+  # - The bundle seems incomplete or missing complementary items
+  # - Candidate items would significantly enhance the bundle's value
+  # - The bundle topic suggests a missing category or function
+  # - Neighbor bundles typically include similar additional items
+  # - Candidate items are provided AND all current bundle items fit well together
+  
+  ### When to use UPDATE:
+  # - The bundle has both: (1) an inconsistent item AND (2) a better replacement candidate
+  # - One item should be swapped for a more coherent alternative
+  # - Neighbor bundles suggest a different item would be more appropriate
+  # - Candidate items are provided AND at least one current item seems inconsistent
+  
+  # ============================================================
+  # PART 2: CLASS DEFINITIONS
+  # ============================================================
+  
+  class Item:
+      """
+      The fundamental unit in bundle recommendation.
+      Attributes:
+          ID (int): Unique identifier (0-indexed)
+          Title (str): Product name/description
+      """
+      def __init__(self, ID, Title):
+          self.ID = ID
+          self.Title = Title
+  
+  class Bundle:
+      """
+      A semantically related collection of items.
+      Attributes:
+          Item_Set (list[Item]): Current items in the bundle
+          Topic (str): The inferred or explicit theme
+      """
+      def __init__(self, Item_Set, Topic):
+          self.Item_Set = Item_Set
+          self.Topic = Topic
+      
+      def analyze_and_execute(self, candidate_items, nbr_context):
+          """
+          Main method to detect and execute the appropriate operation.
+          
+          Step 1: DETECT OPERATION
+          - Analyze semantic coherence of current items
+          - Consider bundle topic: {topic}
+          - Examine neighbor bundle patterns: {nbr_context}
+          - Check if candidates are available
+          - Determine if items need to be ADDED, DELETED, or UPDATED
+          
+          Step 2: EXECUTE OPERATION
+          Once operation is determined, follow the specific execution logic:
+          
+          For DELETE:
+            a) Identify the item most semantically inconsistent with bundle theme
+            b) Consider topic alignment: {topic}
+            c) Check neighbor bundle patterns for validation
+            d) Return the item that should be removed
+          
+          For ADD:
+            a) Analyze what the bundle is missing based on its theme
+            b) Consider topic: {topic} to understand user intent
+            c) Use NBR context to see what similar bundles include
+            d) Evaluate each candidate's complementarity
+            e) Return the single best candidate that completes the bundle
+          
+          For UPDATE:
+            a) First, identify the most inconsistent item (DELETE phase)
+            b) Then, select the best candidate replacement (ADD phase)
+            c) Ensure the replacement significantly improves coherence
+            d) Return both the removed item and selected replacement
+          
+          Returns:
+              Depends on operation:
+              - DELETE: The item to remove
+              - ADD: The candidate item to add
+              - UPDATE: Both removed and selected items
+          """
+          pass
+  
+  # ============================================================
+  # PART 3: INSTANTIATED DATA
+  # ============================================================
+  
+  # Current Bundle
+  current_bundle = Bundle(
+      Item_Set=[{bundle_lines}],
+      Topic="{topic}"
+  )
+  
+  # Bundle Topic (explicit):
+  # {topic}
+  
+  # Neighbor Bundle Context (for semantic reference):
+  {nbr_context}
+  
+  # Available Candidate Items:
+  candidate_items = [{cand_lines}]
+  
+  # ============================================================
+  # PART 4: EXECUTION
+  # ============================================================
+  
+  # Execute the analysis and operation
+  result = current_bundle.analyze_and_execute(candidate_items, nbr_context)
+  
+  # ============================================================
+  # REQUIRED OUTPUT FORMAT
+  # ============================================================
+  
+  # You MUST output in the following format based on the detected operation:
+  
+  # Format for DELETE operation:
+  # Operation Type: DELETE
+  # Removed item: Item(ID, "Title")
+  
+  # Format for ADD operation:
+  # Operation Type: ADD
+  # Selected item: Item(ID, "Title")
+  
+  # Format for UPDATE operation:
+  # Operation Type: UPDATE
+  # Removed item: Item(ID, "Title")
+  # Selected item: Item(ID, "Title")
+  
+  # IMPORTANT NOTES:
+  # 1. First line MUST start with "Operation Type: " followed by ADD, DELETE, or UPDATE
+  # 2. Use the exact Item format: Item(ID, "Title") with the 0-indexed ID
+  # 3. For UPDATE, provide both removed and selected items
+  # 4. Base your decision on semantic analysis, topic, and NBR context
+  # 5. Provide minimal explanation - focus on the required output format
+
+
+# Legacy prompts (kept for reference, not used in unified mode)
+add_prompt: |
+  # Deprecated - Use unified_prompt instead
+  
+delete_prompt: |
+  # Deprecated - Use unified_prompt instead
+  
+update_prompt: |
+  # Deprecated - Use unified_prompt instead

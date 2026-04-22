@@ -1,0 +1,6 @@
+TSF Delete Task Results - clothing
+Hit@1: 0.2060
+Hit count: 41
+Total bundles: 199
+Success rate: 199/199
+Time: 0.27 minutes

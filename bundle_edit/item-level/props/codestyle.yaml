@@ -1,0 +1,722 @@
+add_prompt: |
+  # Task: Semantic Bundle Product Recommendation - ADD Operation
+  # Goal: As a senior recommendation system expert, please understand the semantic relationships and themes within product bundles.
+  # Your task is to select the most suitable item from candidates that best complements the bundle's theme.
+  # Please provide the final result directly, with no explanations.
+
+  class Item:
+      'The smallest entity unit in the bundle recommendation scene; an item belongs to the bundle.'
+      def __init__(self, ID, Title):
+          self.ID = ID
+          self.Title = Title
+
+  class Bundle:
+      "A grouped collection of semantically related items, such as fashion products."
+      def __init__(self, Item_Set):
+          self.Item_Set = Item_Set
+
+  class Candidate:
+      def __init__(self, current_bundle, Item_Set):
+          self.current_bundle = current_bundle
+          self.Item_Set = Item_Set
+          
+      def add(self):
+          """
+          Please follow these semantic reasoning steps to complete this method:
+          1. Analyze the semantic content of all items in the current_bundle 
+               (style, category, gender, usage, function, material, etc.) 
+               to infer its overall topic or theme.
+            2. Incorporate retrieved neighbor bundles (NBR context) to refine 
+               the understanding of possible bundle topic and strengthen reasoning.
+            3. Compare each candidate item against the bundle's theme and neighbor 
+               context to evaluate semantic relevance and complementarity.
+            4. Return the single Item that best completes the bundle.
+  """
+          return [output]
+
+  # Instantiated Data
+  current_bundle
+   = Bundle([{bundle_lines}])
+  candidate_items = [{cand_lines}]
+  candidate = Candidate(current_bundle, candidate_items)
+  result = candidate.add()  # This will return the selected item
+  
+  # Task
+  Based on the above class definitions, semantic reasoning rules, and neighbor bundle context, 
+  determine the single best candidate to complete the bundle.
+
+  # Required Output Format
+  Selected item: Item(ID, "Title")
+
+add_prompt_enhanced: |
+
+  # Task: Semantic Bundle Product Recommendation with NBR Context
+  # Goal: As a senior recommendation system expert, please follow the class definitions and semantic reasoning rules below. 
+  # Your task is to select the single product from the provided candidate list that best and most perfectly completes the existing bundle.
+
+  # Class Definitions
+  class Item:
+      """
+      The fundamental unit in bundle recommendation.
+      Attributes:
+          ID (str): Unique product identifier.
+          Title (str): Readable product name or description.
+      """
+
+  class Bundle:
+      """
+      A collection of semantically related items (e.g., fashion products).
+      Attributes:
+          Item_Set (list[Item]): Items included in the bundle.
+          Topic (str): The underlying theme or purpose of the bundle, 
+                        either inferred or explicitly provided.
+      """
+
+  class Candidate:
+      """
+      A set of potential items to evaluate against the bundle’s topic.
+      Attributes:
+          current_bundle (Bundle): The reference bundle context.
+          Item_Set (list[Item]): Candidate items for selection.
+      Methods:
+          complete():
+              1. Analyze the semantic content of the current_bundle 
+                (e.g., style, category, gender, usage, function, material).
+              2. Incorporate explicit topic text when available.
+              3. Use neighbor bundles (NBR context) to refine topic understanding 
+                and strengthen reasoning.
+              4. Compare each candidate item with the bundle’s inferred theme, 
+                explicit topic, and neighbor context to assess semantic fit.
+              5. Return the single Item that most effectively completes the bundle.
+      """
+
+  # Instantiated Data
+  current_bundle = Bundle(
+      Item_Set=[{bundle_lines}],
+      Topic="{topic}"
+  )
+
+  # Explicit topic provided for this bundle:
+  {topic}
+
+  # Neighbor bundle sessions retrieved for semantic reference:
+  {nbr_context}
+
+  candidate_items = [{cand_lines}]
+  candidate = Candidate(current_bundle, candidate_items)
+
+  # Task Execution
+  selected_item = candidate.complete()
+
+  # Required Output Format
+  Selected item: Item(ID, "Title")
+
+
+add_prompt_enhanced1: |
+
+  # Task: Semantic Bundle Product Recommendation with NBR Context
+  # Goal: As a senior recommendation system expert, please follow the class definitions and semantic reasoning rules below. 
+  # Your task is to select the single product from the provided candidate list that best and most perfectly completes the existing bundle.
+
+  # Class Definitions
+  class Item:
+      """
+      The fundamental unit in bundle recommendation.
+      Attributes:
+          ID (str): Unique product identifier.
+          Title (str): Readable product name or description.
+      """
+
+  class Bundle:
+      """
+      A collection of semantically related items (e.g., fashion products).
+      Attributes:
+          Item_Set (list[Item]): Items included in the bundle.
+          Topic (str): The underlying theme or purpose of the bundle, 
+                        either inferred or explicitly provided.
+      """
+
+  class Candidate:
+      """
+      A set of potential items to evaluate against the bundle’s topic.
+      Attributes:
+          current_bundle (Bundle): The reference bundle context.
+          Item_Set (list[Item]): Candidate items for selection.
+      Methods:
+          complete():
+              1. Analyze the semantic content of the current_bundle 
+                (e.g., style, category, gender, usage, function, material).
+              2. Incorporate explicit topic text when available.
+              3. Use neighbor bundles (NBR context) to refine topic understanding 
+                and strengthen reasoning.
+              4. Compare each candidate item with the bundle’s inferred theme, 
+                explicit topic, and neighbor context to assess semantic fit.
+              5. Return the single Item that most effectively completes the bundle.
+      """
+
+  # Instantiated Data
+  current_bundle = Bundle(
+      Item_Set=[{bundle_lines}],
+      Topic="{topic}"
+  )
+
+  # Explicit topic provided for this bundle:
+  {topic}
+
+  # Neighbor bundle sessions retrieved for semantic reference:
+  {nbr_context}
+
+  candidate_items = [{cand_lines}]
+  candidate = Candidate(current_bundle, candidate_items)
+
+  # Task Execution
+  selected_item = candidate.complete()
+
+  # Required Output Format
+  Selected item: Item(ID, "Title")
+
+delete_prompt: |
+  # Task: Semantic Bundle Product Recommendation - DELETE Operation
+  # Goal: As a senior recommendation system expert, please understand the semantic relationships and themes within product bundles.
+  # Your task is to identify and remove the item that least fits the bundle's semantic theme.
+  # Please provide the final result directly, with no explanations.
+
+  class Item:
+      'The smallest entity unit in the bundle recommendation scene; an item belongs to the bundle.'
+      def __init__(self, ID, Title):
+          self.ID = ID
+          self.Title = Title
+
+  class Bundle:
+      "A grouped collection of semantically related items, such as fashion products."
+      def __init__(self, Item_Set):
+          self.Item_Set = Item_Set
+          
+      def delete(self):
+          """
+          Please strictly follow these semantic reasoning steps to complete this method:
+          1. First, deeply analyze the semantic content of all items in the Item_Set (e.g., style, category, gender, usage, function, material, etc.) to fully understand its overall topic or theme.
+          2. Next, for each item in the Item_Set, perform a detailed evaluation of how well it aligns with the bundle's dominant semantic theme and identify semantic inconsistencies.
+          3. Finally, select and return the single Item that is most semantically inconsistent with the bundle's overall topic or theme.
+          """
+          return [output]
+
+  # Instantiated Data
+  current_bundle = Bundle([{bundle_lines}])
+  result = current_bundle.delete()  # This will return the item to be removed
+  
+  # Instructions
+  1. The operation type is DELETE.
+  2. Apply the operation to produce the final bundle.
+
+  # Required Output Format
+  Removed item: Item(ID, "Title")
+
+delete_prompt_enhanced: |
+  # Task: Semantic Bundle Product Recommendation - DELETE Operation
+  # Goal: As a senior recommendation system expert, please understand the semantic relationships and coherence within product bundles.
+  # Your task is to identify and remove the item that least fits the bundle’s overall semantic coherence.
+  # Please provide the final result directly, with no explanations.
+
+  # Class Definitions
+  class Item:
+      """
+      The fundamental unit in bundle recommendation.
+      Attributes:
+          ID (str): Unique product identifier.
+          Title (str): Readable product name or description.
+      """
+
+  class Bundle:
+      """
+      A collection of semantically related items (e.g., fashion products).
+      Attributes:
+          Item_Set (list[Item]): Items included in the bundle.
+      """
+
+  class Bundle_Editor:
+      """A programmatic interface for editable bundle recommendation operations…"""
+      current_bundle  # the instance object of the Bundle …
+
+      Methods:
+      def delete(self):
+          """
+          Please follow these enhanced semantic reasoning steps to complete this method:
+          1. **Bundle Semantics Analysis**: Analyze the semantic meaning and relationships among items in the Item_Set 
+            to understand the bundle’s internal coherence.
+
+          2. **Optimal Removal**: Select and return the single Item that is most semantically inconsistent 
+             with the bundle’s coherence.
+          """
+          return [output]
+
+  # Instantiated Data
+  current_bundle = Bundle(
+      Item_Set=[{bundle_lines}],
+  )
+
+
+  # Task Execution
+  removed_item = Bundle_Editor(current_bundle).delete()
+
+  # Instructions
+  Please identify which product from the bundle above least fits with the others and should be removed.
+
+  # Required Output Format
+  Removed item: Item(ID, "Title")
+
+delete_prompt_enhanced_1: |
+  # Task: Semantic Bundle Product Recommendation - DELETE Operation (Enhanced with NBR & Topic)
+  # Goal: As a senior recommendation system expert, please understand the semantic relationships and themes within product bundles.
+  # Your task is to identify and remove the item that least fits the bundle's semantic theme, considering topic and similar bundle patterns.
+  # Please provide the final result directly, with no explanations.
+
+  class Item:
+      'The smallest entity unit in the bundle recommendation scene; an item belongs to the bundle.'
+      def __init__(self, ID, Title):
+          self.ID = ID
+          self.Title = Title
+
+  class Bundle:
+      "A grouped collection of semantically related items"
+      def __init__(self, Item_Set):
+          self.Item_Set = Item_Set
+          
+      def delete(self):
+          """
+          Please follow these enhanced semantic reasoning steps to complete this method:
+          1.Bundle topic Analysis: Deeply analyze the semantic content of all items in the Item_Set to fully understand 
+             its overall topic or theme.
+          
+          2. Topic Integration: Consider the bundle topic "{topic}" to understand the user's 
+             purchasing motivation and desired bundle coherence. Items that conflict with this 
+             topic should be prioritized for removal.
+          
+          3. NBR Context Utilization: Examine patterns from similar bundles to understand 
+             what items typically belong together and which items are commonly excluded:
+             {nbr_context}
+          
+          4. Optimal Removal: Select and return the single Item that is most semantically inconsistent 
+             with the bundle's overall topic, and similar bundle patterns.
+          """
+          return [output]
+
+  # Instantiated Data
+  current_bundle = Bundle([{bundle_lines}])
+  
+  # Enhanced Context Information
+  # Bundle Topic: {topic}
+  # NBR Similar Bundles: {nbr_context}
+  
+  # Instructions
+  1. The operation type is DELETE (Enhanced with Topic and NBR analysis).
+  2. Consider bundle topic and similar bundle patterns for more accurate removal decisions.
+  3. Please identify which product from the bundle above least fits with the others and should be removed.
+
+  result = current_bundle.delete()  # This will return the item to be removed
+  # Required Output Format
+  Removed item: Item(ID, "Title")
+delete_prompt_enhanced3: |
+  # Task: Semantic Bundle Product Recommendation - DELETE Operation (Enhanced with NBR & Topic)
+  # Goal: As a senior recommendation system expert, please understand the semantic relationships and themes within product bundles.
+  # Your task is to identify and remove the item that least fits the bundle's semantic theme, considering topic and similar bundle patterns.
+  # Please provide the final result directly, with no explanations.
+
+  class Item:
+      'The smallest entity unit in the bundle recommendation scene; an item belongs to the bundle.'
+      def __init__(self, ID, Title):
+          self.ID = ID
+          self.Title = Title
+
+  class Bundle:
+      "A grouped collection of semantically related items, such as fashion products."
+      def __init__(self, Item_Set):
+          self.Item_Set = Item_Set
+          
+      def delete(self):
+          """
+          Please follow these enhanced semantic reasoning steps to complete this method:
+          1. **Bundle Theme Analysis**: Deeply analyze the semantic content of all items in the Item_Set 
+             (e.g., style, category, gender, usage, function, material, etc.) to fully understand 
+             its overall topic or theme.
+          
+          2. **Topic Integration**: Consider the bundle topic "{topic}" to understand the user's 
+             purchasing motivation and desired bundle coherence. Items that conflict with this 
+             topic should be prioritized for removal.
+          
+          3. **NBR Context Utilization**: Examine patterns from similar bundles to understand 
+             what items typically belong together and which items are commonly excluded:
+             {nbr_context}
+          
+          4. **Inconsistency Evaluation**: For each item in the Item_Set, perform a detailed evaluation 
+             considering:
+             - Alignment with the bundle's dominant semantic theme
+             - Consistency with the stated topic
+             - Patterns observed in similar bundles (NBR context)
+             - Semantic inconsistencies and outlier characteristics
+          
+          5. **Optimal Removal**: Select and return the single Item that is most semantically inconsistent 
+             with the bundle's overall topic, and similar bundle patterns.
+          """
+          return [output]
+
+  # Instantiated Data
+  current_bundle = Bundle([{bundle_lines}])
+  result = current_bundle.delete()  # This will return the item to be removed
+  
+  # Enhanced Context Information
+  # Bundle Topic: {topic}
+  # NBR Similar Bundles: {nbr_context}
+  
+  # Instructions
+  1. The operation type is DELETE (Enhanced with Topic and NBR analysis).
+  2. Consider bundle topic and similar bundle patterns for more accurate removal decisions.
+  3. Please identify which product from the bundle above least fits with the others and should be removed.
+
+  # Required Output Format
+  Removed item: Item(ID, "Title")
+
+
+
+delete_prompt_enhanced1: |
+  # Task: Semantic Bundle Product Recommendation - DELETE Operation (Enhanced with NBR & Topic)
+  # Goal: As a senior recommendation system expert, please understand the semantic relationships and themes within product bundles.
+  # Your task is to identify and remove the item that least fits the bundle's semantic theme, considering topic and similar bundle patterns.
+  # Please provide the final result directly, with no explanations.
+
+  class Item:
+      'The smallest entity unit in the bundle recommendation scene; an item belongs to the bundle.'
+      def __init__(self, ID, Title):
+          self.ID = ID
+          self.Title = Title
+
+  class Bundle:
+      "A grouped collection of semantically related items, such as fashion products."
+      def __init__(self, Item_Set):
+          self.Item_Set = Item_Set
+          
+      def delete(self):
+          """
+          Please follow these enhanced semantic reasoning steps to complete this method:
+          1. **Bundle Theme Analysis**: Deeply analyze the semantic content of all items in the Item_Set 
+             (e.g., style, category, gender, usage, function, material, etc.) to fully understand 
+             its overall topic or theme.
+          
+          2. **Topic Integration**: Consider the bundle topic "{topic}" to understand the user's 
+             purchasing motivation and desired bundle coherence. Items that conflict with this 
+             topic should be prioritized for removal.
+          
+          3. **NBR Context Utilization**: Examine patterns from similar bundles to understand 
+             what items typically belong together and which items are commonly excluded:
+             {nbr_context}
+          
+          4. **Inconsistency Evaluation**: For each item in the Item_Set, perform a detailed evaluation 
+             considering:
+             - Alignment with the bundle's dominant semantic theme
+             - Consistency with the stated topic
+             - Patterns observed in similar bundles (NBR context)
+             - Semantic inconsistencies and outlier characteristics
+          
+          5. **Optimal Removal**: Select and return the single Item that is most semantically inconsistent 
+             with the bundle's overall topic, and similar bundle patterns.
+          """
+          return [output]
+
+  # Instantiated Data
+  current_bundle = Bundle([{bundle_lines}])
+  result = current_bundle.delete()  # This will return the item to be removed
+  
+  # Enhanced Context Information
+  # Bundle Topic: {topic}
+  # NBR Similar Bundles: {nbr_context}
+  
+  # Instructions
+  1. The operation type is DELETE (Enhanced with Topic and NBR analysis).
+  2. Consider bundle topic and similar bundle patterns for more accurate removal decisions.
+  3. Apply the operation to produce the final bundle.
+
+  # Required Output Format
+  Removed item: Item(ID, "Title")
+
+
+
+delete_prompt_enhanced1: |
+  # Task: Semantic Bundle Product Recommendation - DELETE Operation (Enhanced with NBR & Topic)
+  # Goal: As a senior recommendation system expert, please understand the semantic relationships and themes within product bundles.
+  # Your task is to identify and remove the item that least fits the bundle's semantic theme, considering topic and similar bundle patterns.
+  # Please provide the final result directly, with no explanations.
+
+  class Item:
+      'The smallest entity unit in the bundle recommendation scene; an item belongs to the bundle.'
+      def __init__(self, ID, Title):
+          self.ID = ID
+          self.Title = Title
+
+  class Bundle:
+      "A grouped collection of semantically related items, such as fashion products."
+      def __init__(self, Item_Set):
+          self.Item_Set = Item_Set
+          
+      def delete(self):
+          """
+          Please follow these enhanced semantic reasoning steps to complete this method:
+          1. **Bundle Theme Analysis**: Deeply analyze the semantic content of all items in the Item_Set 
+             (e.g., style, category, gender, usage, function, material, etc.) to fully understand 
+             its overall topic or theme.
+          
+          2. **Topic Integration**: Consider the bundle topic "{topic}" to understand the user's 
+             purchasing motivation and desired bundle coherence. Items that conflict with this 
+             topic should be prioritized for removal.
+          
+          3. **NBR Context Utilization**: Examine patterns from similar bundles to understand 
+             what items typically belong together and which items are commonly excluded:
+             {nbr_context}
+          
+          4. **Inconsistency Evaluation**: For each item in the Item_Set, perform a detailed evaluation 
+             considering:
+             - Alignment with the bundle's dominant semantic theme
+             - Consistency with the stated topic
+             - Patterns observed in similar bundles (NBR context)
+             - Semantic inconsistencies and outlier characteristics
+          
+          5. **Optimal Removal**: Select and return the single Item that is most semantically inconsistent 
+             with the bundle's overall topic, and similar bundle patterns.
+          """
+          return [output]
+
+  # Instantiated Data
+  current_bundle = Bundle([{bundle_lines}])
+  result = current_bundle.delete()  # This will return the item to be removed
+  
+  # Enhanced Context Information
+  # Bundle Topic: {topic}
+  # NBR Similar Bundles: {nbr_context}
+  
+  # Instructions
+  1. The operation type is DELETE (Enhanced with Topic and NBR analysis).
+  2. Consider bundle topic and similar bundle patterns for more accurate removal decisions.
+  3. Apply the operation to produce the final bundle.
+
+  # Required Output Format
+  Removed item: Item(ID, "Title")
+
+
+delete_prompt_enhanced1: |
+  # Task: Semantic Bundle Product Recommendation - DELETE Operation (Enhanced with NBR & Topic)
+  # Goal: As a senior recommendation system expert, please understand the semantic relationships and themes within product bundles.
+  # Your task is to identify and remove the item that least fits the bundle's semantic theme, considering topic and similar bundle patterns.
+  # Please provide the final result directly, with no explanations.
+
+  class Item:
+      'The smallest entity unit in the bundle recommendation scene; an item belongs to the bundle.'
+      def __init__(self, ID, Title):
+          self.ID = ID
+          self.Title = Title
+
+  class Bundle:
+      "A grouped collection of semantically related items, such as fashion products."
+      def __init__(self, Item_Set):
+          self.Item_Set = Item_Set
+          
+      def delete(self):
+          """
+          Please follow these enhanced semantic reasoning steps to complete this method:
+          1. **Bundle Theme Analysis**: Deeply analyze the semantic content of all items in the Item_Set 
+             (e.g., style, category, gender, usage, function, material, etc.) to fully understand 
+             its overall topic or theme.
+          
+          2. **Topic Integration**: Consider the bundle topic "{topic}" to understand the user's 
+             purchasing motivation and desired bundle coherence. Items that conflict with this 
+             topic should be prioritized for removal.
+          
+          3. **NBR Context Utilization**: Examine patterns from similar bundles to understand 
+             what items typically belong together and which items are commonly excluded:
+             {nbr_context}
+          
+          4. **Inconsistency Evaluation**: For each item in the Item_Set, perform a detailed evaluation 
+             considering:
+             - Alignment with the bundle's dominant semantic theme
+             - Consistency with the stated topic
+             - Patterns observed in similar bundles (NBR context)
+             - Semantic inconsistencies and outlier characteristics
+          
+          5. **Optimal Removal**: Select and return the single Item that is most semantically inconsistent 
+             with the bundle's overall topic, and similar bundle patterns.
+          """
+          return [output]
+
+  # Instantiated Data
+  current_bundle = Bundle([{bundle_lines}])
+  result = current_bundle.delete()  # This will return the item to be removed
+  
+  # Enhanced Context Information
+  # Bundle Topic: {topic}
+  # NBR Similar Bundles: {nbr_context}
+  
+  # Instructions
+  1. The operation type is DELETE (Enhanced with Topic and NBR analysis).
+  2. Consider bundle topic and similar bundle patterns for more accurate removal decisions.
+  3. Apply the operation to produce the final bundle.
+
+  # Required Output Format
+  Removed item: Item(ID, "Title")
+
+update_prompt: |
+  # Task: Semantic Bundle Product Recommendation - UPDATE Operation
+  # Goal: As a senior recommendation system expert, please perform a two-phase update operation.
+  # Phase 1: DELETE - Remove the least fitting item from the bundle
+  # Phase 2: ADD - Select the most suitable candidate to replace it
+  # Please provide the final result directly, with no explanations.
+
+  ## PHASE 1: DELETE Operation
+  # Current Bundle Items:
+  {bundle_lines}
+
+  # DELETE Task: Identify the item that least fits the bundle's semantic theme
+  # Analyze the semantic content of all items (style, category, gender, usage, function, material, etc.)
+  # Select the item that is most semantically inconsistent with the bundle's overall theme
+
+  class Item:
+      'The smallest entity unit in the bundle recommendation scene; an item belongs to the bundle.'
+      def __init__(self, ID, Title):
+          self.ID = ID
+          self.Title = Title
+
+  class Bundle:
+      "A grouped collection of semantically related items, such as fashion products."
+      def __init__(self, Item_Set):
+          self.Item_Set = Item_Set
+          
+      def delete(self):
+          """
+          Analyze semantic content and identify the most inconsistent item:
+          1. Understand the bundle's overall topic or theme
+          2. Evaluate each item's alignment with the dominant theme
+          3. Return the item that is most semantically inconsistent
+          """
+          return [output]
+
+  current_bundle = Bundle([{bundle_lines}])
+  removed_item = current_bundle.delete()
+
+  ## PHASE 2: ADD Operation  
+  # Remaining Bundle Items (after removing the inconsistent item):
+  # [Items will be determined after Phase 1]
+
+  # Candidate Products:
+  {cand_lines}
+
+  # ADD Task: Select the most suitable candidate to complement the refined bundle
+  class Candidate:
+      def __init__(self, refined_bundle, Item_Set):
+          self.refined_bundle = refined_bundle
+          self.Item_Set = Item_Set
+          
+      def add(self):
+          """
+          Select the best candidate for the refined bundle:
+          1. Analyze the refined bundle's semantic theme (after deletion)
+          2. Evaluate each candidate's complementarity with remaining items
+          3. Select the candidate that best enhances semantic coherence
+          4. Return the single Item that best completes the bundle
+          """
+          return [output]
+
+  # After Phase 1 deletion, evaluate candidates for the refined bundle
+  candidate_items = [{cand_lines}]
+  candidate = Candidate(refined_bundle, candidate_items)
+  selected_item = candidate.add()
+
+  # Instructions
+  1. The operation type is UPDATE (DELETE then ADD).
+  2. First, complete Phase 1: Identify and remove the most semantically inconsistent item.
+  3. Then, complete Phase 2: Select the most suitable candidate for the refined bundle.
+  4. Both phases should consider semantic consistency and bundle coherence.
+
+  # Required Output Format
+  Removed item: Item(ID, "Title")
+  Selected item: Item(ID, "Title")
+
+update_prompt_enhanced: |
+  # Task: Semantic Bundle Product Recommendation - UPDATE Operation (Enhanced with NBR & Topic)
+  # Goal: Perform a two-phase update operation with enhanced semantic analysis
+  # Phase 1: DELETE - Remove the least fitting item from the bundle
+  # Phase 2: ADD - Select the most suitable candidate using NBR and Topic analysis
+
+  ## PHASE 1: DELETE Operation
+  # Current Bundle Items:
+  {bundle_lines}
+
+  # Bundle Topic Analysis:
+  {topic}
+
+  # DELETE Task: Identify the item that least fits the bundle's semantic theme
+  # Consider the bundle topic: "{topic}"
+  # Analyze semantic content (style, category, gender, usage, function, material, etc.)
+  # Select the item most inconsistent with both the bundle theme and stated topic
+
+  class Item:
+      def __init__(self, ID, Title):
+          self.ID = ID
+          self.Title = Title
+
+  class Bundle:
+      def __init__(self, Item_Set):
+          self.Item_Set = Item_Set
+          
+      def delete(self):
+          """
+          Phase 1 - Enhanced DELETE with Topic Analysis:
+          1. Understand bundle's theme considering the topic: "{topic}"
+          2. Evaluate each item's alignment with both theme and topic
+          3. Return the item most semantically inconsistent
+          """
+          return [output]
+
+  current_bundle = Bundle([{bundle_lines}])
+  removed_item = current_bundle.delete()
+
+  ## PHASE 2: ADD Operation (Enhanced with NBR & Topic)
+  # NBR - Similar Bundles for Reference:
+  {nbr_context}
+
+  # Candidate Products:
+  {cand_lines}
+
+  # ADD Task: Select the most suitable candidate using comprehensive analysis
+  class Candidate:
+      def __init__(self, refined_bundle, Item_Set):
+          self.refined_bundle = refined_bundle
+          self.Item_Set = Item_Set
+          
+      def add(self):
+          """
+          Phase 2 - Enhanced ADD with NBR and Topic:
+          1. Analyze refined bundle theme (after deletion) considering topic
+          2. Examine NBR patterns from similar bundles
+          3. Evaluate each candidate's fit with:
+             - Refined bundle semantic coherence
+             - Bundle topic alignment: "{topic}"
+             - Patterns from similar bundles (NBR context)
+          4. Select candidate that best enhances overall bundle quality
+          """
+          return [output]
+
+  # Enhanced Selection Criteria for Phase 2:
+  # - Best matches patterns from similar NBR bundles
+  # - Aligns with bundle topic: "{topic}"
+  # - Creates semantic coherence with remaining items
+  # - Would be most likely purchased together with existing items
+
+  candidate_items = [{cand_lines}]
+  candidate = Candidate(refined_bundle, candidate_items)
+  selected_item = candidate.add()
+
+  # Instructions
+  1. Complete Phase 1: Remove item considering bundle topic
+  2. Complete Phase 2: Add candidate using NBR patterns and topic analysis
+  3. Both phases should optimize for semantic consistency and purchase likelihood
+
+  # Required Output Format
+  Removed item: Item(ID, "Title")
+  Selected item: Item(ID, "Title")

@@ -1,0 +1,6 @@
+BPRMF Delete Task Results - food
+Hit@1: 0.2619
+Hit count: 55
+Total bundles: 210
+Success rate: 210/210
+Time: 0.09 minutes

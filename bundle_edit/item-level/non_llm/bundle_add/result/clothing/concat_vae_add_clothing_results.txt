@@ -1,0 +1,6 @@
+Concat-VAE Add Task Results - clothing
+Hit@1: 0.0553
+Hit count: 11
+Total bundles: 199
+Success rate: 199/199
+Time: 0.10 minutes

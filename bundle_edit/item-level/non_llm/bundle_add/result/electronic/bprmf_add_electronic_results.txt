@@ -1,0 +1,6 @@
+BPRMF Add Task Results - electronic
+Hit@1: 0.3560
+Hit count: 68
+Total bundles: 191
+Success rate: 191/191
+Time: 0.07 minutes

@@ -1,0 +1,6 @@
+Concat-VAE Delete Task Results - food
+Hit@1: 0.1571
+Hit count: 33
+Total bundles: 210
+Success rate: 210/210
+Time: 0.00 minutes

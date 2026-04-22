@@ -1,0 +1,6 @@
+ITEMKNN Update Task Results - food
+Hit@1: 0.0143
+Hit count: 3
+Total bundles: 210
+Success rate: 210/210
+Time: 0.07 minutes

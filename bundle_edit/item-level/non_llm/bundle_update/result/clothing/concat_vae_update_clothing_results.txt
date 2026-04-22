@@ -1,0 +1,17 @@
+Concat-VAE Update Task Results - clothing
+Dataset: clothing
+Total samples: 199
+Successfully processed: 199
+Failed: 10
+Hits: 3
+Overall Hit Rate: 0.0151 (1.51%)
+Success Hit Rate: 0.0151 (1.51%)
+Valid processing rate: 100.0%
+
+Detailed Statistics:
+Delete accuracy: 0.2563 (51/199)
+Add accuracy: 0.0603 (12/199)
+Random baseline: 0.2563 (25.63%)
+Relative improvement: -94.12%
+
+Training + Validation time: 0.07 minutes

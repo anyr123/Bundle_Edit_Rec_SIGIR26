@@ -1,0 +1,6 @@
+TSF Delete Task Results - electronic
+Hit@1: 0.1990
+Hit count: 38
+Total bundles: 191
+Success rate: 191/191
+Time: 0.16 minutes

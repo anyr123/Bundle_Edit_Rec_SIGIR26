@@ -1,0 +1,6 @@
+BPRMF Add Task Results - clothing
+Hit@1: 0.3317
+Hit count: 66
+Total bundles: 199
+Success rate: 199/199
+Time: 0.06 minutes

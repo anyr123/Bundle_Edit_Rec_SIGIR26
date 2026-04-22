@@ -1,0 +1,6 @@
+BPRMF Add Task Results - food
+Hit@1: 0.3619
+Hit count: 76
+Total bundles: 210
+Success rate: 210/210
+Time: 0.06 minutes

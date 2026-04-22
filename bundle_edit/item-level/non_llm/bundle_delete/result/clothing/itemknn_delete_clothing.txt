@@ -1,0 +1,6 @@
+ItemKNN Delete Task Results - clothing
+Hit@1: 0.2362
+Hit count: 47
+Total bundles: 199
+Success rate: 199/199
+Time: 0.00 minutes

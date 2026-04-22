@@ -1,0 +1,6 @@
+Mean-VAE Delete Task Results - electronic
+Hit@1: 0.2042
+Hit count: 39
+Total bundles: 191
+Success rate: 191/191
+Time: 0.05 minutes

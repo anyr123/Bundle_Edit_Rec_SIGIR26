@@ -1,0 +1,27 @@
+add_prompt: |
+  Here is a bundle of products:
+  {bundle_lines}
+  Here are 20 candidate products that might go together with the bundle:
+  {cand_lines}
+  Please pick the one you think could fit with the bundle.
+  Final Selection:[Candidate Number]. [Candidate Product Name]
+
+delete_prompt: |
+  Here is a bundle of products:
+  {bundle_lines}
+  
+  Please identify which product from the bundle above least fits with the others and should be removed.
+  
+  Final Selection:[Product Number]. [Product Name]
+
+update_prompt: |
+  Here is a bundle of products:
+  {bundle_lines}
+  
+  Here are candidate products that might replace one of the existing items:
+  {cand_lines}
+  
+  Following the pattern from the examples above, first identify which item to remove, then select the best replacement.
+  
+  Removed item:[Product Number]. [Product Name]
+  Selected item:[Candidate Number]. [Candidate Product Name]

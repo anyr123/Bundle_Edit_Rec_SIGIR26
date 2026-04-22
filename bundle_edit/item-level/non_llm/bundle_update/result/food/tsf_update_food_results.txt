@@ -1,0 +1,26 @@
+TSF Update Task Results - food
+Dataset: food
+Total samples: 210
+Successfully processed: 210
+Failed: 10
+Hits: 1
+Overall Hit Rate: 0.0048 (0.48%)
+Success Hit Rate: 0.0048 (0.48%)
+Valid processing rate: 100.0%
+
+Detailed Statistics:
+Delete accuracy: 0.2190 (46/210)
+Add accuracy: 0.0381 (8/210)
+Random baseline: 0.2429 (24.29%)
+Relative improvement: -98.04%
+
+Training + Validation time: 0.08 minutes
+
+Model Details:
+- Embedding dimension: 32
+- Transformer heads: 4
+- Transformer layers: 2
+- Max sequence length: 10
+- Training epochs: 10
+- Trained bundles: 842
+- Total items: 3767

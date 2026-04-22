@@ -1,0 +1,6 @@
+Concat-VAE Add Task Results - electronic
+Hit@1: 0.0366
+Hit count: 7
+Total bundles: 191
+Success rate: 191/191
+Time: 0.07 minutes

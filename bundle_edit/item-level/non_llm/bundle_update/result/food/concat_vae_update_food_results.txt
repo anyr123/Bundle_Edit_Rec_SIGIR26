@@ -1,0 +1,17 @@
+Concat-VAE Update Task Results - food
+Dataset: food
+Total samples: 210
+Successfully processed: 210
+Failed: 10
+Hits: 2
+Overall Hit Rate: 0.0095 (0.95%)
+Success Hit Rate: 0.0095 (0.95%)
+Valid processing rate: 100.0%
+
+Detailed Statistics:
+Delete accuracy: 0.2143 (45/210)
+Add accuracy: 0.0571 (12/210)
+Random baseline: 0.2429 (24.29%)
+Relative improvement: -96.08%
+
+Training + Validation time: 0.06 minutes

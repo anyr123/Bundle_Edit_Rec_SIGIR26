@@ -1,0 +1,126 @@
+unified_prompt: |
+  Analyze product bundles and determine if they need an ADD, DELETE, or UPDATE operation.
+  
+  # Example 1 - DELETE operation:
+  Current Bundle:
+  0. "Wireless Mouse"
+  1. "Laptop Stand"
+  2. "USB-C Cable"
+  3. "Coffee Mug"
+  4. "Keyboard"
+  
+  Candidate Items:
+  No candidates available
+  
+  Output:
+  Operation Type: DELETE
+  Removed item: 3. "Coffee Mug"
+  
+  # Example 2 - ADD operation:
+  Current Bundle:
+  0. "Running Shoes"
+  1. "Yoga Mat"
+  2. "Water Bottle"
+  
+  Candidate Items:
+  0. "Laptop Bag"
+  1. "Fitness Tracker"
+  2. "Office Chair"
+  3. "Protein Powder"
+  
+  Output:
+  Operation Type: ADD
+  Selected item: 1. "Fitness Tracker"
+  
+  # Example 3 - UPDATE operation:
+  Current Bundle:
+  0. "Chef's Knife"
+  1. "Cutting Board"
+  2. "Tennis Racket"
+  3. "Mixing Bowl"
+  
+  Candidate Items:
+  0. "Measuring Cups"
+  1. "Gaming Mouse"
+  2. "Spatula Set"
+  3. "Headphones"
+  
+  Output:
+  Operation Type: UPDATE
+  Removed item: 2. "Tennis Racket"
+  Selected item: 2. "Spatula Set"
+  
+  Analyze product bundles and determine if they need an ADD, DELETE, or UPDATE operation.
+  
+  # Now analyze this bundle:
+  Current Bundle:
+  {bundle_lines}
+  
+  Candidate Items:
+  {cand_lines}
+  
+  Output:
+
+
+# Legacy prompts with few-shot examples
+add_prompt: |
+  Here are some examples of selecting items to add to bundles:
+  
+  Example 1:
+  Bundle: 0. "Laptop", 1. "Mouse", 2. "Keyboard"
+  Candidates: 0. "Coffee Maker", 1. "Laptop Bag", 2. "Desk Lamp"
+  Selection: 1. "Laptop Bag"
+  
+  Example 2:
+  Bundle: 0. "Yoga Mat", 1. "Running Shoes"
+  Candidates: 0. "Blender", 1. "Water Bottle", 2. "Book"
+  Selection: 1. "Water Bottle"
+  
+  Now your turn:
+  Bundle:
+  {bundle_lines}
+  Candidates:
+  {cand_lines}
+  
+  Final Selection:[Candidate Number]. [Candidate Product Name]
+
+delete_prompt: |
+  Here are some examples of identifying items to remove from bundles:
+  
+  Example 1:
+  Bundle: 0. "Laptop", 1. "Mouse", 2. "Coffee Maker", 3. "USB Cable"
+  Removed: 2. "Coffee Maker"
+  
+  Example 2:
+  Bundle: 0. "Shampoo", 1. "Conditioner", 2. "Tennis Ball", 3. "Body Wash"
+  Removed: 2. "Tennis Ball"
+  
+  Now your turn:
+  Bundle:
+  {bundle_lines}
+  
+  Final Selection:[Product Number]. [Product Name]
+
+update_prompt: |
+  Here are some examples of updating bundles by replacing items:
+  
+  Example 1:
+  Bundle: 0. "Laptop", 1. "Basketball", 2. "Mouse"
+  Candidates: 0. "Monitor", 1. "Coffee Mug", 2. "Keyboard"
+  Removed: 1. "Basketball"
+  Selected: 2. "Keyboard"
+  
+  Example 2:
+  Bundle: 0. "Shampoo", 1. "Towel", 2. "Laptop"
+  Candidates: 0. "Conditioner", 1. "Desk", 2. "Body Wash"
+  Removed: 2. "Laptop"
+  Selected: 2. "Body Wash"
+  
+  Now your turn:
+  Bundle:
+  {bundle_lines}
+  Candidates:
+  {cand_lines}
+  
+  Removed item:[Product Number]. [Product Name]
+  Selected item:[Candidate Number]. [Candidate Product Name]

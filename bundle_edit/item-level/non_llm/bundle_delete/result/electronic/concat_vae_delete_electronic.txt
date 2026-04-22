@@ -1,0 +1,6 @@
+Concat-VAE Delete Task Results - electronic
+Hit@1: 0.2094
+Hit count: 40
+Total bundles: 191
+Success rate: 191/191
+Time: 0.00 minutes

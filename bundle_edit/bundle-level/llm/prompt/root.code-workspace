@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "../../../.."
+		},
+		{
+			"name": "code_repro",
+			"path": "../../../../autodl-tmp/code_repro"
+		}
+	],
+	"settings": {}
+}

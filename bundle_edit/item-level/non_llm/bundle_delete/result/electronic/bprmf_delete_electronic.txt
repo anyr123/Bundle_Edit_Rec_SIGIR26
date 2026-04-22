@@ -1,0 +1,6 @@
+BPRMF Delete Task Results - electronic
+Hit@1: 0.2880
+Hit count: 55
+Total bundles: 191
+Success rate: 191/191
+Time: 0.06 minutes

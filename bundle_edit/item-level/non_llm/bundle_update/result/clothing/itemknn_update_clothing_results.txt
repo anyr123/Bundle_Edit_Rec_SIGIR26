@@ -1,0 +1,6 @@
+ITEMKNN Update Task Results - clothing
+Hit@1: 0.0201
+Hit count: 4
+Total bundles: 199
+Success rate: 199/199
+Time: 0.07 minutes

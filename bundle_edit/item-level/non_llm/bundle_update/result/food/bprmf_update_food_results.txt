@@ -1,0 +1,32 @@
+BPRMF Bundle Update Task Results - food
+Dataset: food
+Total samples: 210
+Successfully processed: 210
+Failed: 10
+Overall hits: 52
+
+Performance Metrics:
+Overall Hit Rate: 0.2476 (24.76%)
+Success Hit Rate: 0.2476 (24.76%)
+Delete Accuracy: 0.4476 (44.76%)
+Add Accuracy: 0.3476 (34.76%)
+Processing Rate: 100.0%
+
+Baseline Comparison:
+Random baseline: 0.2429 (24.29%)
+Improvement: 1.96%
+
+Training Details:
+Training + Evaluation time: 0.10 minutes
+Embedding dimension: 64
+Training epochs: 10
+Batch size: 128
+Learning rate: 0.01
+Trained bundles: 842
+Trained items: 3767
+
+Task Description:
+Update = Delete + Add (两阶段都正确才算命中)
+Delete: 基于embedding相似度检测最不合适的item
+Add: 基于embedding相似度选择最适合的候选item
+Model: BPRMF (Bayesian Personalized Ranking Matrix Factorization)

@@ -1,0 +1,6 @@
+Mean-VAE Delete Task Results - clothing
+Hit@1: 0.2261
+Hit count: 45
+Total bundles: 199
+Success rate: 199/199
+Time: 0.20 minutes

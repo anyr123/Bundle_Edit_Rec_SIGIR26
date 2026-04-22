@@ -1,0 +1,126 @@
+# In-Context Learning Prompts for Bundle Tasks
+# 通过示例指导模型理解任务的prompt版本
+
+add_prompt: |
+  Here are some examples of bundle completion tasks:
+  
+  Example 1 (Clothing):
+  Bundle: 1. Winter Jacket - North Face, 2. Wool Scarf - Cashmere
+  Candidates: 1. Summer Flip Flops, 2. Winter Gloves - Leather, 3. Cooking Pan
+  Best fit: 2. Winter Gloves - Leather (complements the winter clothing theme)
+  
+  Example 2 (Food):
+  Bundle: 1. Olive Oil - Extra Virgin, 2. Pasta - Italian Linguine
+  Candidates: 1. Car Battery, 2. Parmesan Cheese - Aged, 3. Tennis Racket
+  Best fit: 2. Parmesan Cheese - Aged (completes the Italian cooking theme)
+  
+  Example 3 (Electronic):
+  Bundle: 1. Smartphone - iPhone 13, 2. Wireless Earbuds - AirPods
+  Candidates: 1. Phone Case - Protective, 2. Garden Hose, 3. Baking Flour
+  Best fit: 1. Phone Case - Protective (enhances the mobile device setup)
+  
+  Now solve this task:
+  Here is a bundle of products:
+  {bundle_lines}
+  Here are 20 candidate products that might go together with the bundle:
+  {cand_lines}
+  
+  Please pick the one you think could fit best with the bundle, following the pattern from the examples above.
+  Final Selection: [Candidate Number]. [Candidate Product Name]
+
+delete_prompt: |
+  Task:
+  You are given a bundle of products. Identify the product that least fits with the others and should be removed.
+
+  Now solve this task:
+  Here is a bundle of products:
+  {bundle_lines}
+
+  Please identify which product from the bundle above least fits with the others and should be removed.
+
+  Final Selection: [Product Number]. [Product Name]
+
+  Example:
+  Here is a bundle of products:
+  1. A. Byer Juniors Pegged Skirt With Button Yoke, Black, 5, 2. Ladies Scoop Neck Stretchy Long Sleeve Knitted Tunic Top, 3. Carhartt Men's Steel Toe Cotton Crew Work Socks, 4. Active Basic Women's Sexy Camisole Cami with Lace and Adjustable Straps, 5. Embellished Shoulder Dolman Sleeves Top Blouse Green Small, 6. Casio Women's LTP1237D-7A Silver-Tone Shell White Dial Watch
+
+  Please identify which product from the bundle above least fits with the others and should be removed.
+
+  Final Selection: [Product Number]. [Product Name]
+
+  Answer:
+  Final Selection: 3. Carhartt Men's Steel Toe Cotton Crew Work Socks
+update_prompt1: |
+  Here are some examples of bundle update tasks:
+  
+  Example 1 (Clothing):
+  Original Bundle: 1. Winter Jacket, 2. Wool Scarf, 3. Summer Sandals
+  Candidates: 1. Winter Gloves, 2. Beach Towel, 3. Car Keys
+  Remove: 3. Summer Sandals (doesn't fit winter clothing theme)
+  Replace with: 1. Winter Gloves (complements winter clothing bundle)
+  
+  Example 2 (Food):
+  Original Bundle: 1. Olive Oil, 2. Car Battery, 3. Pasta
+  Candidates: 1. Parmesan Cheese, 2. Tennis Racket, 3. Phone Case
+  Remove: 2. Car Battery (unrelated to cooking theme)
+  Replace with: 1. Parmesan Cheese (completes Italian cooking set)
+  
+  Example 3 (Electronic):
+  Original Bundle: 1. Smartphone, 2. Baking Flour, 3. Wireless Earbuds
+  Candidates: 1. Phone Charger, 2. Garden Hose, 3. Cooking Pot
+  Remove: 2. Baking Flour (doesn't fit mobile device theme)
+  Replace with: 1. Phone Charger (enhances mobile device setup)
+  
+  
+  Now solve this task:
+  Here is a bundle of products:
+  {bundle_lines}
+  
+  Here are candidate products that might replace one of the existing items:
+  {cand_lines}
+    Task: First identify which product from the original bundle should be removed (least fitting), then select which candidate product should replace it.
+  
+  Following the pattern from the examples above, first identify which item to remove, then select the best replacement.
+  Removed item: [Product Number]. [Product Name]
+  Selected item: [Candidate Number]. [Candidate Product Name]
+
+update_prompt: |
+  Here are some examples of bundle update tasks:
+  
+  Example 1 (Clothing):
+  Original Bundle: 1. Winter Jacket, 2. Wool Scarf, 3. Summer Sandals
+  Candidates: 1. Winter Gloves, 2. Beach Towel, 3. Car Keys
+  Remove: 3. Summer Sandals (doesn't fit winter clothing theme)
+  Replace with: 1. Winter Gloves (complements winter clothing bundle)
+  
+  Example 2 (Food):
+  Original Bundle: 1. Olive Oil, 2. Car Battery, 3. Pasta
+  Candidates: 1. Parmesan Cheese, 2. Tennis Racket, 3. Phone Case
+  Remove: 2. Car Battery (unrelated to cooking theme)
+  Replace with: 1. Parmesan Cheese (completes Italian cooking set)
+  
+  Example 3 (Electronic):
+  Original Bundle: 1. Smartphone, 2. Baking Flour, 3. Wireless Earbuds
+  Candidates: 1. Phone Charger, 2. Garden Hose, 3. Cooking Pot
+  Remove: 2. Baking Flour (doesn't fit mobile device theme)
+  Replace with: 1. Phone Charger (enhances mobile device setup)
+  
+  
+  Now solve this task:
+  Here is a bundle of products:
+  {bundle_lines}
+  
+  Here are candidate products that might replace one of the existing items:
+  {cand_lines}
+  Task: First identify which product from the original bundle should be removed (least fitting), then select which candidate product should replace it.
+  
+  Please think step by step:
+  1. Analyze the bundle's intent and overall theme, then identify the least fitting item
+  2. Consider what type of product would better complement the remaining items and align with the bundle intent
+  3. Evaluate each candidate for how well it would fit the bundle's intent and theme
+  4. Select the candidate that would create the most coherent bundle aligned with the intent
+  5. Ensure the replacement improves the overall bundle quality and coherence with the intent
+  
+  Following the pattern from the examples above, first identify which item to remove, then select the best replacement.
+  Removed item: [Product Number]. [Product Name]
+  Selected item: [Candidate Number]. [Candidate Product Name]

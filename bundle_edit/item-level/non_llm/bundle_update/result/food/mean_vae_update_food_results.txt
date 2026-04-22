@@ -1,0 +1,24 @@
+Mean-VAE Update Task Results - food
+Dataset: food
+Total samples: 210
+Successfully processed: 210
+Failed: 10
+Hits: 3
+Overall Hit Rate: 0.0143 (1.43%)
+Success Hit Rate: 0.0143 (1.43%)
+Valid processing rate: 100.0%
+
+Detailed Statistics:
+Delete accuracy: 0.2286 (48/210)
+Add accuracy: 0.0429 (9/210)
+Random baseline: 0.2429 (24.29%)
+Relative improvement: -94.12%
+
+Training + Validation time: 0.07 minutes
+
+Model Details:
+- Embedding dimension: 64
+- Latent dimension: 32
+- Training epochs: 10
+- Trained bundles: 842
+- Total items: 3767

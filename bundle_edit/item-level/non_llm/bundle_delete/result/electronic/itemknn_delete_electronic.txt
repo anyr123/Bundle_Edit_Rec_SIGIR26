@@ -1,0 +1,6 @@
+ItemKNN Delete Task Results - electronic
+Hit@1: 0.2304
+Hit count: 44
+Total bundles: 191
+Success rate: 191/191
+Time: 0.00 minutes

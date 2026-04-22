@@ -1,0 +1,6 @@
+Mean-VAE Delete Task Results - food
+Hit@1: 0.1381
+Hit count: 29
+Total bundles: 210
+Success rate: 210/210
+Time: 0.06 minutes

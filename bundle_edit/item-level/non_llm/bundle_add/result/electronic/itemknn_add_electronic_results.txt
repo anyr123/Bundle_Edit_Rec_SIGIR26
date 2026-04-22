@@ -1,0 +1,6 @@
+ItemKNN Add Task Results - electronic
+Hit@1: 0.0262
+Hit count: 5
+Total bundles: 191
+Success rate: 190/191
+Time: 0.05 minutes

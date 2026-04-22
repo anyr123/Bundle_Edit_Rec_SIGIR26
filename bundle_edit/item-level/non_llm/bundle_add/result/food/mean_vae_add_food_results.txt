@@ -1,0 +1,6 @@
+Mean-VAE Add Task Results - food
+Hit@1: 0.0524
+Hit count: 11
+Total bundles: 210
+Success rate: 210/210
+Time: 0.08 minutes

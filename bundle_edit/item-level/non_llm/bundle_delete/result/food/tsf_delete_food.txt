@@ -1,0 +1,6 @@
+TSF Delete Task Results - food
+Hit@1: 0.1286
+Hit count: 27
+Total bundles: 210
+Success rate: 210/210
+Time: 0.15 minutes

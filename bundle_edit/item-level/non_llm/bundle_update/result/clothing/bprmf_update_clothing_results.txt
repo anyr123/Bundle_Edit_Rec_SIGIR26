@@ -1,0 +1,32 @@
+BPRMF Bundle Update Task Results - clothing
+Dataset: clothing
+Total samples: 199
+Successfully processed: 199
+Failed: 10
+Overall hits: 50
+
+Performance Metrics:
+Overall Hit Rate: 0.2513 (25.13%)
+Success Hit Rate: 0.2513 (25.13%)
+Delete Accuracy: 0.4623 (46.23%)
+Add Accuracy: 0.3367 (33.67%)
+Processing Rate: 100.0%
+
+Baseline Comparison:
+Random baseline: 0.2563 (25.63%)
+Improvement: -1.96%
+
+Training Details:
+Training + Evaluation time: 0.10 minutes
+Embedding dimension: 64
+Training epochs: 10
+Batch size: 128
+Learning rate: 0.01
+Trained bundles: 800
+Trained items: 4487
+
+Task Description:
+Update = Delete + Add (两阶段都正确才算命中)
+Delete: 基于embedding相似度检测最不合适的item
+Add: 基于embedding相似度选择最适合的候选item
+Model: BPRMF (Bayesian Personalized Ranking Matrix Factorization)

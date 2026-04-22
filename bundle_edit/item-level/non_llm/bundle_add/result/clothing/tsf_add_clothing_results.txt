@@ -1,0 +1,6 @@
+TSF Add Task Results - clothing
+Hit@1: 0.0503
+Hit count: 10
+Total bundles: 199
+Success rate: 199/199
+Time: 0.16 minutes
