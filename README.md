@@ -85,7 +85,7 @@ All experiments for **RQ4** are located in `.\bundle_edit_rec`.
 ```bash
 python bprmf_mask.py -d Youshu
 ```
-**Step 2 — Run recommendation model on processed data**（以 CrossCBR 为例）
+**Step 2 — Run recommendation model on processed data**
 ```bash
 cd CrossCBR
 python train.py -d Youshu -rho 0     # -p: 
